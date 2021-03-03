@@ -2,12 +2,24 @@
 
 ## 基本格式
 * 注释和C相同
+
 * 行尾不需要；
+
 * 运算符不能跟在变量常量后面，需要空格
+
 * for循环，if判断之类的控制流，临时变量可以不声明（？
+
 * 声明变量var
+
 * 声明常量let
+
 * "String + \\(othertype)"将其他类型加入字符串
+
+* guard-else 判断语法
+
+* 
+
+  
 
 ## 可选类型Optionals
 
@@ -28,6 +40,12 @@ print(optStr)
 var optStr:String！
 //声明可选变量，自动解析
 ```
+
+```
+if let 
+```
+
+
 
 ## 运算符
 
@@ -157,6 +175,8 @@ enum eunmname{
 
 * 计算属性 get set
 
+  只读计算属性 var name:TYPE { }
+
   属性观察器 willset-newValue，didset-oldValue
 
 * 类属性 ，通过类名访问
@@ -167,9 +187,51 @@ enum eunmname{
 
 ## 方法
 
-=类成员函数
+=类成员函数 **func**
 
 * 默认仅给方法的第一个参数名称一个局部参数名称;默认同时给第二个和后续的参数名称为全局参数名称
+
+* self
+
+* 变异mutating func
+
+  修改结构体和枚举类型中的值类型的属性
+
+* 类方法，类似公有成员函数
+
+## 下标脚本
+
+```swift
+subscript(index: Int) -> Int {
+    get {
+        // 用于下标脚本值的声明
+    }
+    set(newValue) {
+        // 执行赋值操作
+    }
+}
+```
+
+## 类
+
+* super.init 子类的初始化 
+* override 重写
+* final class 防止重写类，也不能被继承
+* convenience init 便利构造
+* 子类不会默认继承父类的构造器，需要重写
+* init? 可失败构造器
+
+## 自动引用计数
+
+* 强引用
+
+* 循环强引用
+
+* weak弱引用 
+
+* unowned无主引用
+
+  
 
 
 
