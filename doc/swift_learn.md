@@ -1,5 +1,15 @@
 # Swift
 
+## 新概念
+
+* 闭包
+* 可选
+* 属性&方法
+* 协议
+* as is
+* 泛型
+* 元组
+
 ## 基本格式
 * 注释和C相同
 
@@ -169,6 +179,8 @@ enum eunmname{
 
 ## 属性
 
+> 用于储存值
+
 * 储存属性
 
   延迟储存属性 lazy
@@ -179,13 +191,15 @@ enum eunmname{
 
   属性观察器 willset-newValue，didset-oldValue
 
-* 类属性 ，通过类名访问
+* 类型属性 ，通过类名访问
 
-  static 来定义值类型(struct,enum)的类型属性
+  static 来定义值类型(struct,enum)的类型属性 
 
   class 来为类(class)定义类型属性
 
 ## 方法
+
+> 用于提供功能
 
 =类成员函数 **func**
 
@@ -224,14 +238,87 @@ subscript(index: Int) -> Int {
 ## 自动引用计数
 
 * 强引用
-
 * 循环强引用
-
 * weak弱引用 
-
 * unowned无主引用
 
+## 类型转换
+
+* is 判断
+* as，as？，as！类型转换
+
+## 扩展
+
+* extension
+
+## 协议
+
+```swift
+protocol SomeProtocol: SomeSuperClass, FirstProtocol, AnotherProtocol{
+  //
+}
+```
+
+* 用于指定实例属性或类属性
+
+* 在协议中用var声明变量属性，{set get}可读可写，{get}只读
+
+* 对构造器的规定
+
+  ```swift
+  protocol SomeProtocol{
+    init(someParamter: Int)
+  }
   
+  class someClass:SomeProtocol{
+    required init(someParameter: Int){
+      //
+    }
+  }
+  ```
 
+  * 不需要写构造器的实体
+  * required
+  * 重写 required override
 
+* 类专属协议
 
+  ```swift
+  protocol SomeClassOnlyProtocol: class, SomeProtocol{
+    //
+  }
+  ```
+
+  * class 必须第一个出现在协议的继承列表中
+
+* is as 检验协议一致性
+
+## 泛型
+
+> 同c的模版类
+
+```swift
+func swap<T>(_ a: inout T, _ b: inout T)
+```
+
+* T占位类型名 （<T>）
+
+* 类型约束
+
+  ```swift
+  func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
+      // 这里是泛型函数的函数体部分
+  }
+  ```
+
+* associatedtype 关联类
+
+* where
+
+* 
+
+## 访问权限
+
+* public internal fileprivate private
+* 外层级别与内层访问权限最低的一致
+* 子类访问级别不得高于父类的访问级别ß
