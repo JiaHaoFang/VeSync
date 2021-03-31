@@ -146,6 +146,10 @@ func name(形参) -> returntpye
 
 ## 闭包
 
+> https://zhuanlan.zhihu.com/p/92464947
+
+* 闭包表达式
+
 ```swift
 {(paramters) -> return type in 
   statements
@@ -159,7 +163,6 @@ func name(形参) -> returntpye
   ```swift
   var reversed = names.sorted( by: { $0 > $1 } )
   print(reversed)
-  //此处用的是闭包表达式，自动捕获上下文的值
   ```
 
 * 尾随闭包是一个书写在函数括号之后的闭包表达式，函数支持将其作为最后一个参数调用
